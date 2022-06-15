@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+ {% block content %}
+  <div class="container pt-5">
+    <div class="row">
+          <div class="col">
+            <div class="card text-bg-whiite mb-3" style="">
+                <div class="card-header">Order</div>
+                <div class="card-body">
+                    <table class="table table-striped-columns">
+                        <thead>
+                              <tr>
+                                  <th>date creation</th>
+                                  <th>Books</th>
+                                  <th>Customer</th>
+                                  <th>Status</td>
+                            
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for item in orders %}
+                              <tr>
+                                  <td>{{item.date_creation}}</td>
+                                  <td>{{item.bookId}}</td>  
+                                  <td>{{item.customerId}}</td>  
+                                  <td>{{item.status}}</td>  
+                                  
+
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                      </table>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+ 
+ {% endblock  %}
+
+ 

@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container p-5 ">
+    <div class="mb-2">
+        <div>
+            <form class="d-flex" role="search" method="GET">
+{{myfilter.form}}
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+        </div>
+        <div class="badge bg-primary">
+            <a href="{% url 'createc' customer.id %}" class="fw-bold text-white">Create Order</a>
+        </div>
+        
+    <table class="table mt-2">
+        <thead>
+            <tr class="table-primary">
+                <th>id_</th>
+                <th>name</th>
+                <th>email</th>
+              
+                
+            </tr>
+        </thead>
+   
+            <tr>
+                <td>{{customer.id}}</td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.email}}</td>
+              
+    
+            </tr>
+         
+        </tbody>
+      </table>
+    </div>
+    <div class="pt-5">
+        <div> <span class="badge bg-primary">orders :</span> </div>
+        <br>
+        <table class="table">
+            <thead>
+                <tr class="table-primary">
+                    <th>status</th>
+                    <th>date_creation</th>
+                    <th>book</th>
+                    <th>category</th>
+                  
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in orders %}
+                <tr>
+                    <td>{{item.status}}</td>
+                    <td>{{item.date_creation}}</td>
+                    <td>{{item.bookId}}</td>
+                    <td>{{item.bookId.category}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+{% endblock  %}

@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <div class="card text-left w-25">
+        <img class="card-img-top" src="{{request.user.customer.image.url}}" alt="">
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">
+                <div class="container">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form}}
+                        <hr>
+                        <button type="submit" class="btn btn-primary">Action</button>
+
+                    </form>
+                </div>
+            </p>
+        </div>
+    </div>
+
+    <div>
+        {% endblock  %}
